@@ -1,0 +1,111 @@
+$ ( tài liệu ) . sẵn sàng ( function ( )  {
+    // thanh xử lý
+    setTimeout ( function ( )  {
+        firstQuestion ( ) ;
+        $ ( '.spinner' ) . phaiOut ( ) ;
+        $ ( '#preloader' ) . trì hoãn ( 350 ) . fadeOut ( 'chậm' ) ;
+        $ ( 'body' ) . trì hoãn ( 350 ) . css ( {
+            'tràn' : 'hiển thị'
+        } ) ;
+    } ,  600 ) ;
+} )
+function  firstQuestion ( ) {
+    
+    $ ( '.content' ) . ẩn ( ) ;
+    Swal . lửa ( {
+        title : 'he lô ghaniudau!' ,
+        text : 'Anh có điều này muốn hỏi nhớ trả lời theo con tim của bé nhaaa.' ,
+        imageUrl : 'img / cuteCat.jpg' ,
+        imageWidth : 300 ,
+        imageHeight : 300 ,
+        background : '#fff url ("img / iput-bg.jpg")' ,
+        imageAlt : 'Hình ảnh tùy chỉnh' ,
+      } ) . then ( function ( ) {
+        $ ( '.content' ) . show hàng ( 200 ) ;
+      } )
+}
+
+ // chuyển đổi vị trí nút
+ function  switchButton ( )  {
+    var  audio  =  new  Audio ( ' ../ sound / duck.mp3' ) ;
+    var  audio  =  new  Audio ( 'sound / duck.mp3' ) ;
+    âm thanh . chơi ( ) ;
+    var  leftNo  =  $ ( '#no' ) . css ( "trái" ) ;
+    var  topNO  =  $ ( '#no' ) . css ( "đầu trang" ) ;
+@@ -38,14 +38,18 @@ function firstQuestion () {
+    $ ( '# không' ) . css ( "top" ,  topY ) ;
+    $ ( '#yes' ) . css ( "left" ,  leftNo ) ;
+    $ ( '#yes' ) . css ( "top" ,  topNO ) ;
+    bàn điều khiển . log ( 'kk' ) ;
+}
+// di chuyển nút ngẫu nhiên póition
+function  moveButton ( )  {
+    var  audio  =  new  Audio ( ' ../ sound / Swish1.mp3' ) ;
+    var  audio  =  new  Audio ( 'sound / Swish1.mp3' ) ;
+    âm thanh . chơi ( ) ;
+    var  x  =  Toán học . ngẫu nhiên ( )  *  500 ;
+    var  y  =  Toán học . ngẫu nhiên ( )  *  500 ;
+    if  ( screen . width <= 600 )  {
+        var  x  =  Toán học . ngẫu nhiên ( )  *  300 ;
+        var  y  =  Toán học . ngẫu nhiên ( )  *  500 ;
+    }  khác {
+        var  x  =  Toán học . ngẫu nhiên ( )  *  500 ;
+        var  y  =  Toán học . ngẫu nhiên ( )  *  500 ;
+    }
+    var  left  =  x  +  'px' ;
+    var  top  =  y  +  'px' ;
+    $ ( '# không' ) . css ( "trái" ,  trái ) ;
+@@ -61,6 +65,10 @@ $ ('# không'). Mousemove (function () {
+        moveButton ( ) ;
+    n ++ ;
+} ) ;
+$ ( '# không' ) . nhấp vào ( ( )  =>  {
+    if  ( màn hình . chiều rộng > = 900 )
+        switchButton ( ) ;
+} )
+
+// tạo văn bản trong đầu vào
+function  textGenerate ( )  {
+@@ -85,7 +93,7 @@ function textGenerate () {
+
+// hiển thị cửa sổ bật lên
+$ ( '#yes' ) . nhấp vào ( function ( )  {
+    var  audio  =  new  Audio ( ' ../ sound / tick.mp3' ) ;
+    var  audio  =  new  Audio ( 'sound / tick.mp3' ) ;
+    âm thanh . chơi ( ) ;
+    Swal . lửa ( {
+        title : 'Nói cho anh lí do em thích anh đi :33 '  ,
+        html : true ,
+        chiều rộng : 900 ,
+        padding : '3em' ,
+        html : "<input type = 'text' class = 'form-control' id = 'txtReason' onmousemove = textGenerate () placeholder = 'Whyyy'>" ,
+        background : '#fff url ("img / iput-bg.jpg")' ,
+        phông nền : `
+              rgba (0,0,123,0,4)
+              url ("img / giphy2.gif")
+              trên bên trái
+              không lặp lại
+            ` ,
+        showCancelButton : true ,
+        hủy bỏButtonText : "Thôi ngại lém: <<" ,
+        confirmButtonColor : '# 3085d6' ,
+        hủy bỏButtonColor : '# d33' ,
+        confirmButtonColor : '# fe8a71' ,
+        hủy bỏButtonColor : '# f6cd61' ,
+        verifyButtonText : 'Gửi cho tớ <3'
+    } ) . then ( ( kết quả )  =>  {
+        if  ( kết quả . giá trị )  {
+            Swal . lửa ( {
+                chiều rộng : 900 ,
+                confirmButtonText : 'Okiiiii lun <3' ,
+                background : '#fff url ("img / iput-bg.jpg")' ,
+                title : 'Anh biết mà hihi yêu em 3000' ,
+                text : "Tối nay anh qua đón ghan đi chơi nhaaa  <3 33"  ,
+                confirmButtonColor : '# 83d0c9' ,
+                onClose : ( )  =>  {
+                    cửa sổ . location  =  'http://fb.com' ;
+                  }
+            } )
+        }
+    } )
+} )
